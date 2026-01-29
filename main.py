@@ -47,6 +47,85 @@ sb_admin = create_client(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY)
 
 app = FastAPI(title="TurboSTL Credits API")
 
+from fastapi.responses import HTMLResponse
+
+@app.get("/", response_class=HTMLResponse)
+def home():
+    return """
+    <html>
+      <head>
+        <title>TurboSTL</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </head>
+      <body>
+        <h1>TurboSTL</h1>
+        <p>TurboSTL provides STL generation services using a credit-based subscription system.</p>
+
+        <h2>Pricing</h2>
+        <ul>
+          <li>$10 per month = 100 credits</li>
+          <li>Eco (low quality) API generation: <strong>1 credit</strong></li>
+          <li>Max (medium quality) API generation: <strong>2 credits</strong></li>
+          <li>User-uploaded PNG generation: <strong>1 credit</strong></li>
+        </ul>
+
+        <p>Credits are consumed per generation request.</p>
+
+        <p>
+          <a href="/terms">Terms of Service</a> |
+          <a href="/privacy">Privacy Policy</a> |
+          <a href="/refunds">Refund Policy</a>
+        </p>
+
+        <p>Contact: <a href="mailto:support@turbostl.com">support@turbostl.com</a></p>
+      </body>
+    </html>
+    """
+
+
+@app.get("/terms", response_class=HTMLResponse)
+def terms():
+    return """
+    <html>
+      <head><title>Terms of Service</title></head>
+      <body>
+        <h1>Terms of Service</h1>
+        <p>TurboSTL provides digital STL generation services through a credit-based subscription.</p>
+        <p>Credits are digital goods, are non-transferable, and have no cash value.</p>
+        <p>Abuse, fraud, or chargeback abuse may result in account suspension or termination.</p>
+      </body>
+    </html>
+    """
+
+
+@app.get("/privacy", response_class=HTMLResponse)
+def privacy():
+    return """
+    <html>
+      <head><title>Privacy Policy</title></head>
+      <body>
+        <h1>Privacy Policy</h1>
+        <p>TurboSTL collects only the information required to operate the service.</p>
+        <p>We do not sell or share personal data.</p>
+        <p>Payments are securely processed by Stripe.</p>
+      </body>
+    </html>
+    """
+
+
+@app.get("/refunds", response_class=HTMLResponse)
+def refunds():
+    return """
+    <html>
+      <head><title>Refund Policy</title></head>
+      <body>
+        <h1>Refund Policy</h1>
+        <p>TurboSTL sells digital credits. All sales are final.</p>
+        <p>If you experience technical issues, please contact support@turbostl.com.</p>
+      </body>
+    </html>
+    """
+
 
 # -----------------------------
 # Helpers
