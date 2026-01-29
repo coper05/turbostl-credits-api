@@ -64,8 +64,8 @@ def home():
         <h2>Pricing</h2>
         <ul>
           <li>$10 per month = 100 credits</li>
-          <li>Eco (low quality) API generation: <strong>1 credit</strong></li>
-          <li>Max (medium quality) API generation: <strong>2 credits</strong></li>
+          <li>Eco quality API generation: <strong>1 credit</strong></li>
+          <li>Max quality API generation: <strong>2 credits</strong></li>
           <li>User-uploaded PNG generation: <strong>1 credit</strong></li>
         </ul>
 
@@ -77,7 +77,7 @@ def home():
           <a href="/refunds">Refund Policy</a>
         </p>
 
-        <p>Contact: <a href="mailto:support@turbostl.com">support@turbostl.com</a></p>
+        <p>Contact: <a href="mailto:hello@turbostl.com">hello@turbostl.com</a></p>
       </body>
     </html>
     """
